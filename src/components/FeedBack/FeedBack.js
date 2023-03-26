@@ -2,7 +2,6 @@ import css from './FeedBack.module.css';
 import PropTypes from 'prop-types';
 
 export default function FeedBack({ onLeaveFeedback }) {
-  const { onGoodBtn, onNeutralBtn, onBadBtn } = onLeaveFeedback;
   const { btnGood, btnNeutral, btnBad } = css;
   return (
     <div>
@@ -10,7 +9,7 @@ export default function FeedBack({ onLeaveFeedback }) {
         type="button"
         name="good"
         className={btnGood}
-        onClick={onGoodBtn}
+        onClick={onLeaveFeedback}
       >
         Good
       </button>
@@ -18,7 +17,7 @@ export default function FeedBack({ onLeaveFeedback }) {
         type="button"
         name="neutral"
         className={btnNeutral}
-        onClick={onNeutralBtn}
+        onClick={onLeaveFeedback}
       >
         Neutral
       </button>
@@ -26,7 +25,7 @@ export default function FeedBack({ onLeaveFeedback }) {
         type="button"
         name="bad"
         className={btnBad}
-        onClick={onBadBtn}
+        onClick={onLeaveFeedback}
       >
         Bad
       </button>
@@ -35,5 +34,5 @@ export default function FeedBack({ onLeaveFeedback }) {
 }
 
 FeedBack.propTypes = {
-  onLeaveFeedback: PropTypes.object,
+  onLeaveFeedback: PropTypes.func,
 };

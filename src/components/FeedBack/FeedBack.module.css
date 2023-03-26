@@ -28,4 +28,5 @@
 }
 .btn:focus {
   box-shadow: 4px 5px 5px rgb(91, 91, 91);
+  font-size: 18px;
 }

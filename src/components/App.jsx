@@ -11,20 +11,10 @@ class App extends React.Component {
     bad: 0,
   };
 
-  addGoodFeedBack = () => {
+  handleFeedBack = evt => {
+    const { name } = evt.target;
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
-
-  addNeutralFeedBack = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-  addBadFeedBack = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
+      return { [name]: prevState[name] + 1 };
     });
   };
 
@@ -41,18 +31,11 @@ class App extends React.Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-    const { addGoodFeedBack, addNeutralFeedBack, addBadFeedBack } = this;
 
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedBack
-            onLeaveFeedback={{
-              onGoodBtn: addGoodFeedBack,
-              onNeutralBtn: addNeutralFeedBack,
-              onBadBtn: addBadFeedBack,
-            }}
-          ></FeedBack>
+          <FeedBack onLeaveFeedback={this.handleFeedBack}></FeedBack>
         </Section>
         <Section title="Statistics">
           <Statistic
