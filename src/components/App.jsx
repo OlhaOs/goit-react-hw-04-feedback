@@ -11,10 +11,10 @@ class App extends React.Component {
     bad: 0,
   };
 
-  handleFeedBack = evt => {
-    const { name } = evt.target;
+  handleFeedBack = option => {
+
     this.setState(prevState => {
-      return { [name]: prevState[name] + 1 };
+      return { [option]: prevState[option] + 1 };
     });
   };
 
@@ -35,7 +35,10 @@ class App extends React.Component {
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedBack onLeaveFeedback={this.handleFeedBack}></FeedBack>
+          <FeedBack
+            options={['good', 'neutral', 'bad']}
+            onLeaveFeedback={this.handleFeedBack}
+          ></FeedBack>
         </Section>
         <Section title="Statistics">
           <Statistic

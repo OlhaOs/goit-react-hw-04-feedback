@@ -8,18 +8,7 @@
   border-radius: 4px;
   transition: all 0.3s ease 0s;
   opacity: 0.85;
-}
-.btnGood {
-  composes: btn;
-  background-color: rgb(57, 151, 57);
-}
-.btnNeutral {
-  composes: btn;
-  background-color: rgb(227, 227, 109);
-}
-.btnBad {
-  composes: btn;
-  background-color: rgb(220, 99, 99);
+  background-color: #fff;
 }
 
 .btn:hover {
@@ -28,5 +17,5 @@
 }
 .btn:focus {
   box-shadow: 4px 5px 5px rgb(91, 91, 91);
-  font-size: 18px;
+  background-color: lightgray;
 }

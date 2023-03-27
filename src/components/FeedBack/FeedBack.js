@@ -1,34 +1,21 @@
 import css from './FeedBack.module.css';
 import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
 
-export default function FeedBack({ onLeaveFeedback }) {
-  const { btnGood, btnNeutral, btnBad } = css;
+export default function FeedBack({ options, onLeaveFeedback }) {
   return (
     <div>
-      <button
-        type="button"
-        name="good"
-        className={btnGood}
-        onClick={onLeaveFeedback}
-      >
-        Good
-      </button>
-      <button
-        type="button"
-        name="neutral"
-        className={btnNeutral}
-        onClick={onLeaveFeedback}
-      >
-        Neutral
-      </button>
-      <button
-        type="button"
-        name="bad"
-        className={btnBad}
-        onClick={onLeaveFeedback}
-      >
-        Bad
-      </button>
+      {options.map(option => (
+        <button
+          key={nanoid()}
+          type="button"
+          name={option}
+          className={css.btn}
+          onClick={() => onLeaveFeedback(option)}
+        >
+          {option}
+        </button>
+      ))}
     </div>
   );
 }
